@@ -1,30 +1,54 @@
-// Pair in C++ Standard Template Library (STL)
-// Pair is used to combine together two values that may be different in type. 
-// Pair provides a way to store two heterogeneous objects as a single unit.
-
-// Vector in C++ STL-
-// Vectors are same as dynamic arrays with the ability to resize itself automatically
-// when an element is inserted or deleted, with their storage being handled automatically 
-// by the container. Vector elements are placed in contiguous storage so that they can be accessed and traversed using iterators
-
-#include <iostream>
+#include<iostream>
+#include<vector>
 using namespace std;
-void printvec(vector<int> v){
-    cout<<"size: "<<v.size()<<endl;
-    for(int i=0;i<v.size();++i){
-        cout<<v[i]<<" ";
-    }
-}
-int main()
-{   vector<int>v;
-    int n;
-    cin>>n;
-    for(int i=0;i<n;++i){
-        int x;
-        cin>>x;
-        printvec(v);
-        v.pushback(x);
-    }
-    printvec(v);
-    return 0;
+
+int main(){
+    // new vector ka size zero hota hai 
+    // size vs capacity size ka matlab abhi kitna element present hain
+    //  where as capcacity means total kitna memory mili hai isko
+    // when we clear command in that case mera size zero hota hai capacity remain the same 
+    // type of an dynamic array jo ki size ko double kar leta hai after a certain period of time 
+    vector<int>a(5,1);
+    cout<<"print the element of the vector :"<<endl;
+    for(int i:a){
+        cout<<i<<" ";
+    }cout<<endl;
+
+    vector<int>v;
+    cout<<"capacity -->"<<v.capacity()<<endl;
+
+    v.push_back(1);
+    cout<<"capacity -->"<<v.capacity()<<endl;
+
+    v.push_back(2);
+    cout<<"capacity -->"<<v.capacity()<<endl;
+
+    v.push_back(3);
+    cout<<"capacity -->"<<v.capacity()<<endl;
+    cout<<"size -->"<<v.size()<<endl;
+
+    // at and front/back operation on vector 
+    cout<<"element at 2nd index -->"<<v.at(2)<<endl;
+
+    cout<<"Front -->"<<v.front()<<endl;
+    cout<<"back -->"<<v.back()<<endl;
+
+    // pop operation on vectors
+    cout<<"before pop"<<endl;
+    for(int i:v){
+        cout<<i<<" ";
+    }cout<<endl;
+
+    v.pop_back();
+
+    cout<<"after pop"<<endl;
+    for(int i:v){
+        cout<<i<<" ";
+    }cout<<endl;
+
+    // clear operation on vectors and changes in size 
+    cout<<"before clear -> size :"<<v.size()<<endl;
+    v.clear();
+    cout<<"after clear -> size :"<<v.size();
+
 }
